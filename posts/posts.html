@@ -1,0 +1,32 @@
+---
+layout: base.html
+eleventyImport:
+  collections: ["post"]
+pagination:
+    data: collections.post
+    size: 20
+    alias: posts
+---
+<section>
+    <ul>
+        {%- for post in posts -%}
+        <article>
+            <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+            <small>{{ post.data.date | postDate }}</small>
+            <a href="{{ post.url }}"><img src="{{ post.data.icon }}"></a>
+            <p>{{ post.data.summary }}</p>
+        </article>
+        {%- endfor -%}
+    </ul>
+    <nav aria-labelledby="post-pagination">
+        <ol>
+          <li>{% if page.url != pagination.href.first %}<a href="{{ pagination.href.first }}">First</a>{% else %}First{% endif %}</li>
+          <li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
+      {%- for pageEntry in pagination.pages %}
+          <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>Page {{ loop.index }}</a></li>
+      {%- endfor %}
+          <li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
+          <li>{% if page.url != pagination.href.last %}<a href="{{ pagination.href.last }}">Last</a>{% else %}Last{% endif %}</li>
+        </ol>
+      </nav>
+</section>

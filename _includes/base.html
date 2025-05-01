@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en_us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="color-scheme" content="light">
+
+        <meta name="generator" content="11ty">
+
+        <meta name="description" content="A blog about my Minecraft mods and other mods that I love.">
+        <meta name="subject" content="Minecraft mods">
+        <meta name="rating" content="General">
+
+        <title>{{ title | default: "jship's Minecraft Mods" }}</title>
+
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="icon" sizes="192x192" href="/img/mc_head.png">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1><a href="/"><img src="/img/mc_head.png" height="64px" width="64px"></a> <a href="/">jship's Minecraft mods</a></h1>
+                <nav>
+                    <ul>
+                        <li><a href="/">home</a></li>
+                        <li><a href="/posts/">posts</a></li>
+                        <li><a href="https://modrinth.com/user/jshipley">modrinth</a></li>
+                        <li><a href="https://github.com/jshipley">github</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                {{ content }}
+            </main>
+            <footer><p>©2025 - built with 11ty</p></footer>
+        </div>
+    </body>
+</html>

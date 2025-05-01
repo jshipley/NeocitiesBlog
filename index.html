@@ -1,0 +1,111 @@
+---
+layout: base.html
+eleventyImport:
+  collections: ["post"]
+---
+<section>
+    <h2>About me</h2>
+
+    <p>I have been playing Minecraft since some time around 2010. I also enjoy programming and have been
+    working on my own mods for the last couple of years as well as contributing to a few other mods.</p>
+
+    <p>I mostly focus on mods that are available for the latest version of Minecraft. It's always a little
+    exciting to see which mods have updated to the latest release!</p>
+
+    <p>I usually play on <a href="https://fabricmc.net">Fabric</a>, although I do occasionally use
+    <a href="https://neoforged.net">Neoforge</a> as well. For my own mods, I try to make them available for both.</p>
+</section>
+<section>
+    <h2>My Mods</h2>
+    <article>
+        <article>
+            <figure>
+                <img src="https://cdn.modrinth.com/data/G05u0Ety/01d246293b8196853a5900391505e3310181e781.png">
+                <figcaption>
+                    <a href="https://modrinth.com/mod/haunt-furnace">Haunt Furnace</a>
+                </figcaption>
+            </figure>
+            <p>
+                A furnace that haunts your items and turns them into something new.
+            </p>
+        </article>
+        <article>
+            <figure>
+                <img src="https://cdn.modrinth.com/data/P5cDzldd/336a0d6a03cda823851ff700d6b94e2df3b0410a_96.webp">
+                <figcaption>
+                    <a href="https://modrinth.com/mod/basic-fluid-hopper">Basic Fluid Hopper</a>
+                </figcaption>
+            </figure>
+            <p>
+                A basic hopper that works for fluids instead of items.
+            </p>
+        </article>
+        <article>
+            <figure>
+                <img src="https://cdn.modrinth.com/data/bZDWL6yP/0aa751313efc70bfc193592faaa6461eb291b28f_96.webp">
+                <figcaption>
+                    <a href="https://modrinth.com/mod/blazing-bamboo-continued">Blazing Bamboo Continued</a>
+                </figcaption>
+            </figure>
+            <p>
+                A fiery bamboo native to the crimson forests of the Nether. A fork/update of <a href="https://modrinth.com/mod/blazingbamboo">Blazing Bamboo</a> by PaddedShaman.
+            </p>
+        </article>
+    </article>
+</section>
+<section>
+    <h2>Works in Progress</h2>
+
+    <p>
+        In addition to the mods that I have published and available, I have several more that are in various states of
+        planning or implementation. Let me know if you want them sooner, and I may focus my efforts in that direction.
+    </p>
+    <article>
+        <article>
+            <h3>Oritech Souls</h3>
+            <p>
+                An addon for <a href="https://modrinth.com/mod/oritech">Oritech</a>. Adds the ability to transfer souls
+                through soul pipes, and adds integration with a few other mods that produce or use souls.
+            </p>
+        </article>
+
+        <article>
+            <h3>Bushcraft</h3>
+            <p>A low-tech tech mod for the early game with a focus on making survival and gathering more fun.</p>
+        </article>
+
+        <article>
+            <h3>Amethyst Lights</h3>
+            <p>Lights that work similar to candles, but are made of glowing purple crystals. You can place up to 4 of them in a single block.</p>
+        </article>
+
+        <article>
+            <h3>Odd Pipes</h3>
+            <p>
+                A standalone pipe mod similar to the pipes from <a href="https://modrinth.com/mod/quark-oddities">Quark Oddities</a>,
+                but also has fluid, energy, and possibly soul pipes.
+            </p>
+        </article>
+    </article>
+</section>
+<section>
+    <h2>Featured Mods</h2>
+
+    <p>
+        These are some of the mods I love playing with. I tend to like mods that add new or interesting features, interact well with other mods,
+        and don't get excessive with adding new blocks and items.
+
+        This will focus on mods that are available on Fabric 1.21.5 (or occasionally 1.21.1) that I have been playing with recently.
+    </p>
+
+    <article>
+        {%- for post in collections.post | limit(8) -%}
+        <article>
+            <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+            <small>{{ post.data.date | postDate }}</small>
+            <a href="{{ post.url }}"><img src="{{ post.data.icon }}"></a>
+            <p>{{ post.data.summary }}</p>
+        </article>
+        {%- endfor -%}
+    </article>
+</section>
